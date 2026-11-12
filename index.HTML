@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing and GST Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Billing and GST Calculator</h1>
+        <p class="subtitle">Simple GST Billing System</p>
+
+        <div class="form-group">
+            <label>Customer Name</label>
+            <input type="text" id="customer"
+                   placeholder="Enter customer name">
+        </div>
+
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" id="product"
+                   placeholder="Enter product name">
+        </div>
+
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" id="quantity"
+                   min="1" value="1">
+        </div>
+
+        <div class="form-group">
+            <label>Price per Item (₹)</label>
+            <input type="number" id="price"
+                   min="0" step="0.01" placeholder="Enter price">
+        </div>
+
+        <div class="form-group">
+            <label>GST Rate</label>
+            <select id="gst">
+                <option value="0">0%</option>
+                <option value="5">5%</option>
+                <option value="12">12%</option>
+                <option value="18" selected>18%</option>
+                <option value="28">28%</option>
+            </select>
+        </div>
+
+        <button onclick="calculateBill()">Calculate Bill</button>
+
+        <div id="result" class="result" style="display:none;">
+            <h2>Bill Receipt</h2>
+            <p id="customerResult"></p>
+            <p id="productResult"></p>
+            <hr>
+            <p>Subtotal: <span id="subtotal"></span></p>
+            <p>CGST: <span id="cgst"></span></p>
+            <p>SGST: <span id="sgst"></span></p>
+            <h3>Total Amount: <span id="total"></span></h3>
+            <button onclick="window.print()">Print Bill</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
